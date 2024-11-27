@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRole } from "../Auth/RoleProvider"; // Ensure correct path
-
+import EditableRoleList from "./EditableRoleList";
 const RoleList = () => {
   const { roles, createRole } = useRole();
   const [roleName, setRoleName] = useState("");
@@ -30,13 +30,7 @@ const RoleList = () => {
   return (
     <div>
       <h2>Role List</h2>
-      <ul>
-        {Object.keys(roles).map((role, index) => (
-          <li key={index}>
-            <strong>{role}</strong>: {roles[role].join(", ")}
-          </li>
-        ))}
-      </ul>
+     <EditableRoleList />
 
       <h3>Create New Role</h3>
       <form onSubmit={handleSubmit}>
