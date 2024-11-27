@@ -3,19 +3,20 @@ import { useAuth } from "./Auth/authProvider";
 import { ProtectedComponent } from './components/ProtectedComponent'
 import {Dashboard} from './components/Dashboard'
 import { Link } from "react-router-dom";
+import { Nav } from "./components/Nav";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
   const { user, isAuthorized, login, logout } = useAuth();
   return (
     <>
-      {user ? (
+      {/* {user ? (
         <button onClick={logout} >logout</button>
       ) : (
         <Link to={'/login'}>login</Link>
       )}
-      {isAuthorized("read") ? <p>hi {user.name}</p> : <p>please login</p>}
-      
+      {isAuthorized("read") ? <p>hi {user.name}</p> : <p>please login</p>} */}
+      <Nav />
       <ProtectedComponent permission={"delete"}>
         <Dashboard />
       </ProtectedComponent>

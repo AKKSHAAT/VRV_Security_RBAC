@@ -7,6 +7,7 @@ import CreateUser from "./components/CreateUser.jsx";
 import "./index.css";
 import App from "./App.jsx";
 import LoginForm from "./components/LoginForm.jsx";
+import RoleList from "./components/RoleList.jsx";
 
 // Define routes using createBrowserRouter
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/newUser",
     element: <CreateUser />,
+  },
+  {
+    path: "/roles",
+    element: <RoleList />,
   },
 ]);
 
