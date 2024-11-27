@@ -1,13 +1,15 @@
 import React from "react";
-import { usersData } from "../Auth/authProvider";
+import { useAuth } from "../Auth/authProvider";
+import { useState } from "react";
+import { EditableRows } from "./EditableRows";
 
 const UserList = () => {
+  const { allUsers } = useAuth();
+  
   return (
     <ul>
-      {usersData.map((user) => (
-        <li key={user.id}>
-          {user.name} ({user.role})
-        </li>
+      {allUsers().map((user)=>(
+        <EditableRows key={user.id} user={user}/>
       ))}
     </ul>
   );
