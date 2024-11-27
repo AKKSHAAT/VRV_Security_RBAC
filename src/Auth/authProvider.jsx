@@ -29,7 +29,12 @@ export const AuthProvider = ({ children }) => {
     );
     setUsers(updatedUsers); 
   };
-
+  const changeName = (name, userId) => {
+    const updatedUsers = users.map((u) => 
+      u.id === userId ? { ...u, name: name } : u
+    );
+    setUsers(updatedUsers); 
+  };
 
   const isAuthorized = (permission) => {
     if (user) return roles[user.role]?.includes(permission);
@@ -62,7 +67,7 @@ export const AuthProvider = ({ children }) => {
   
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, changeRole, isAuthorized , allUsers, addUser, deleteUser, toggleUserStatus}}>
+    <AuthContext.Provider value={{ user, login, logout, changeRole, isAuthorized , allUsers, addUser, deleteUser, toggleUserStatus, changeName}}>
       {children}
     </AuthContext.Provider>
   );

@@ -2,6 +2,7 @@ import React from 'react'
 import { ProtectedComponent } from './ProtectedComponent'
 import UserList from './UserList'
 import { Link } from 'react-router-dom'
+import RoleList from './RoleList'
 
 export const Dashboard = () => {
   return (
@@ -13,6 +14,9 @@ export const Dashboard = () => {
 
     <ProtectedComponent permission={'read'}>
         <UserList />
+    </ProtectedComponent>
+    <ProtectedComponent permission={'update'}>
+        <RoleList />
     </ProtectedComponent>
     </div>
   )

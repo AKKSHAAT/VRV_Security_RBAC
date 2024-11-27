@@ -3,7 +3,7 @@ import { useAuth } from "../Auth/authProvider";
 import { ProtectedComponent } from "./ProtectedComponent";
 
 export const EditableRows = ({ user }) => {
-  const { changeRole, deleteUser, toggleUserStatus } = useAuth();
+  const { changeName, changeRole, deleteUser, toggleUserStatus } = useAuth();
   const [editMode, setEditMode] = useState(false);
   const [name, setName] = useState(user.name);
   const [role, setRole] = useState(user.role);
@@ -11,6 +11,7 @@ export const EditableRows = ({ user }) => {
   const handleEdit = () => {
     setEditMode(!editMode);
     changeRole(role, user.id);
+    changeName(name, user.id);
   };
 
   const handleDelete = () => {

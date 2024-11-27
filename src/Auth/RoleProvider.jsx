@@ -10,6 +10,7 @@ export const initialRolesData = {
 };
 
 export const RoleProvider = ({ children }) => {
+
   const [roles, setRoles] = useState(initialRolesData);
 
   // Create a new role
